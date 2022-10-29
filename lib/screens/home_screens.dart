@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
+import 'package:ticket_booking/screens/hotel_screen.dart';
 import 'package:ticket_booking/screens/ticket_view.dart';
+import 'package:ticket_booking/utils/app_info_list.dart';
 import 'package:ticket_booking/utils/styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -94,9 +96,41 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: [TicketView(), TicketView(), TicketView()],
+              children: ticketList
+                  .map((ticket) => TicketView(ticket: ticket))
+                  .toList(),
             ),
-          )
+          ),
+          const Gap(15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headLinetStyle2,
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    "View All",
+                    style:
+                        Styles.textStyle.copyWith(color: Styles.primaryColor),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.only(left: 20),
+              child: Row(
+                  children: hotelList
+                      .map((hotel) => HotelScreen(hotel: hotel))
+                      .toList())),
+          const Gap(15),
         ],
       ),
     );
