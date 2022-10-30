@@ -1,14 +1,13 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:gap/gap.dart';
 import 'package:ticket_booking/utils/app_layout.dart';
 import 'package:ticket_booking/utils/styles.dart';
 import 'package:ticket_booking/widgets/thick_container.dart';
 
 class TicketView extends StatelessWidget {
-  TicketView({super.key, required this.ticket});
+  const TicketView({super.key, required this.ticket});
   final Map<String, dynamic> ticket;
 
   @override
@@ -34,11 +33,9 @@ class TicketView extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        child: Text(ticket['from']['code'],
-                            style: Styles.headLinetStyle3
-                                .copyWith(color: Colors.white)),
-                      ),
+                      Text(ticket['from']['code'],
+                          style: Styles.headLinetStyle3
+                              .copyWith(color: Colors.white)),
                       Expanded(child: Container()),
                       const ThickContainer(),
                       Expanded(
@@ -60,7 +57,7 @@ class TicketView extends StatelessWidget {
                                       (index) => SizedBox(
                                             width: AppLayout.getWidth(3),
                                             height: AppLayout.getHeight(1),
-                                            child: DecoratedBox(
+                                            child: const DecoratedBox(
                                                 decoration: BoxDecoration(
                                                     color: Colors.white)),
                                           )),
@@ -161,7 +158,7 @@ class TicketView extends StatelessWidget {
                               (index) => SizedBox(
                                     width: AppLayout.getWidth(5),
                                     height: AppLayout.getHeight(1),
-                                    child: DecoratedBox(
+                                    child: const DecoratedBox(
                                         decoration:
                                             BoxDecoration(color: Colors.white)),
                                   )),
